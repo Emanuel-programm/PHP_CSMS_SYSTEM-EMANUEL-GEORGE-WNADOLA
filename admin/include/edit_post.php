@@ -22,6 +22,7 @@ $post_content=$row['post_content'];
 if(isset($_POST['update_post'])){
   $post_title=$_POST['title'];
   $post_author=$_POST['Author'];
+  $post_category=$_POST['post_category_id'];
   // $post_category=$_POST['post_category_id'];
   $post_status=$_POST['post_status'];
 
@@ -40,9 +41,9 @@ if(isset($_POST['update_post'])){
     }
   }
   
-  $query = "UPDATE posts SET ";
+  $query = "UPDATE posts SET "; 
   $query .= "post_title = '{$post_title}', ";
-  // $query .= "post_category_id = '{$post_category}', ";
+  $query .= "post_category_id = '{$post_category}', ";
   $query .= "post_date = NOW(), ";
   $query .= "post_author = '{$post_author}', ";
   $query .= "post_status = '{$post_status}', ";
@@ -54,7 +55,6 @@ if(isset($_POST['update_post'])){
 
   $update_post=mysqli_query($connection,$query);
   confirmQuery($update_post); 
-
 
 
 // echo "Hi";

@@ -34,8 +34,23 @@ confirmQuery($create_post_query);
   <input type="text" class="form-control" name="Author">  
 </div>
 <div class="form-group">
-  <label for="title">Post category id </label>
-  <input type="text" class="form-control" name="post_category_id">  
+ 
+<select name="post_category_id" id="post_category">
+<?php
+$query="SELECT * FROM categories";
+$select_categories=mysqli_query($connection,$query);
+// confirmQuery($select_categories);
+while($row =mysqli_fetch_assoc($select_categories)){
+$cat_title=$row['cat_title'];
+$cat_id=$row['cat_id'];
+
+echo "
+
+<option value='{$cat_id}'>{$cat_title}</option>
+";
+}
+?>
+</select> 
 </div>
 <div class="form-group">
   <label for="title">Post status </label>
@@ -64,3 +79,4 @@ confirmQuery($create_post_query);
 </form>
 
 
+ 

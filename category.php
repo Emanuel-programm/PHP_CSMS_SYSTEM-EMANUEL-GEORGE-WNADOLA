@@ -12,9 +12,14 @@
 
 
             <?php   
+
+
+if(isset($_GET['category'])){
+   $category_id=$_GET['category']; 
+}
             
             
-            $select="SELECT * FROM  posts";
+            $select="SELECT * FROM  posts WHERE post_category_id=$category_id";
             $query=mysqli_query($connection,$select);
 
             while($row=mysqli_fetch_assoc($query)){
@@ -65,4 +70,3 @@
 
         <!-- Footer -->
         <?php include "./include/footer.php"  ?>
-
