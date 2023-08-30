@@ -28,7 +28,7 @@ case 'edit_post':
 include "include/edit_post.php";
 break;  
 default:
-include "include/view_all_comment.php.php";
+include "include/view_all_comment.php";
 }
 
 ?>

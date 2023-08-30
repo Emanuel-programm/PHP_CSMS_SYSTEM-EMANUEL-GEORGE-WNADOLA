@@ -51,8 +51,8 @@
                     <a href="./categories.php"><i class="fa fa-fw fa-folder"></i> Categories</a>
                     </li>
                    
-                    <li class="active">
-                    <a href="blank-page.html"><i class="fa fa-fw fa-comments"></i> Comments</a>
+                    <li>
+                    <a href="./comments.php"><i class="fa fa-fw fa-comments"></i> Comments</a>
 
                     </li>
                     <li>
