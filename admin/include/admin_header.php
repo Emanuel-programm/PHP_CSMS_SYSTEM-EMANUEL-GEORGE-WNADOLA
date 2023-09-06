@@ -1,4 +1,14 @@
 <?php ob_start();  // help in the redirecting of the page ?>
+<?php session_start() ?>
+
+<?php 
+if(!isset($_SESSION['user_role'])){
+//   if($_SESSION['user_role']=='subscriber'){
+    header("location:../index.php");
+//   }  
+}
+
+?>
 <?php include "../include/db.php" ?>
  <?php include_once "functions.php" ?>
 <!DOCTYPE html>

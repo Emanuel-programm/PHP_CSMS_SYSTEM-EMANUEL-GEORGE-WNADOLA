@@ -11,7 +11,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                            WELCOME TO ADMIN PAGE
-                            <small>Author</small>
+                            <small><?php echo $_SESSION['username'] ?></small>
                         </h1>
                     </div>
                 </div>

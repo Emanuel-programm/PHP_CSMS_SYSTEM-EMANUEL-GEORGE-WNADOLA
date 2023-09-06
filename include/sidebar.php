@@ -11,11 +11,30 @@
             </button>
             </span>
         </div>
-</form>  <!--search form -->
-                    <!-- /.input-group -->
-                </div>
-                <!-- Blog Categories Well -->
-                <div class="well">
+</form>  
+</div>
+
+
+ <!-- login -->
+ <div class="well">
+<h4>Login</h4>
+<form method="post" action="include/login.php">
+<div class="form-group">
+<input type="text" name="username" class="form-control" placeholder="Enter Username">
+</div>
+<div class="form-group">
+<input type="password" name="password" class="form-control" placeholder="Enter password">
+<span class="input-group-btn">
+<button class="btn btn-primary" name="login" type="submit">Submit</button>
+</span>
+</div>
+</form>  
+</div>
+
+
+
+<!-- Blog Categories Well -->
+<div class="well">
 <?php
 $query="SELECT * FROM categories";
 $select_categories_sidebar=mysqli_query($connection,$query);
