@@ -67,7 +67,7 @@
                         </ul>
                     </li>
                     <li>
-                    <a href="index.html"><i class="fa fa-fw fa-user"></i> Profile</a>
+                    <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
 
                     </li>
                 </ul>

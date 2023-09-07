@@ -19,7 +19,7 @@ if(isset($_POST['login'])){
     die("QUERY FAILED".mysqli_error($connection));
    }
    while($row=mysqli_fetch_array($select_user_query)){
-     $db_user_d=$row["user_id"];
+     $db_user_id=$row["user_id"];
      $db_user_username=$row["user_name"];
      $db_user_password=$row["user_password"];
      $db_user_firstname=$row["user_firstname"];
