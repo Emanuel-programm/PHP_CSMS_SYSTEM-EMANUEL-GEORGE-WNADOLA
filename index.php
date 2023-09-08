@@ -26,10 +26,9 @@
            $post_image=$row['post_image'];
            $post_status=$row['post_status'];
 
-           if($post_status!=='published'){
-           echo "<h1 class='text-center'> NO POST SORRY </h1>";
-           }
-           else{
+           if($post_status=='published'){
+           
+          
 
           ?>
             
@@ -54,7 +53,7 @@
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 <hr>
-<?php } }?>
+<?php } } ?>
             </div>
 
             <!-- Blog Sidebar Widgets Column -->

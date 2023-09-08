@@ -133,9 +133,73 @@ echo "<div class='huge'>{$category_count}</div>";
 </div>
 <!-- /.row -->
 
+<?php
+$query="SELECT * FROM posts WHERE post_status='drafted'";
+$select_all_draft_post=mysqli_query($connection,$query);
+$post_draft_count=mysqli_num_rows($select_all_draft_post);
+
+$query="SELECT * FROM comments WHERE comment_status='unapproved'";
+$select_all_unapproved_comment=mysqli_query($connection,$query);
+$comment_unapproved_count=mysqli_num_rows($select_all_unapproved_comment);
+
+
+$query="SELECT * FROM users WHERE user_role='subscriber'";
+$select_all_subscriber=mysqli_query($connection,$query);
+$subscriber_count=mysqli_num_rows($select_all_subscriber);
+
+?>
+
+
+<div class="row">
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['Data', 'Count'],
+<?php 
+$element_text=['Active posts','Draft posts','Comments','Pending comment','Users','Subscriber','Categories'];
+$element_count=[$post_count,$post_draft_count,$comment_count,$comment_unapproved_count,$user_count,$subscriber_count,$category_count];
+for($i=0;$i<7;$i++){
+// echo "['{$$element_text[$i]}'"." ,"."{$element_count[$i]}],";
+// echo "['{$element_text[$i]}'" .","."{$element_count[$i]}],";
+
+echo "['{$element_text[$i]}'".","."{$element_count[$i]}],";
+
+
+
+}
+
+
+?>
+
+        //   ['posts', 1000], static value
+          
+        ]);
+;
+        var options = {
+          chart: {
+            title: '',
+            subtitle: '',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+
+ <div id="columnchart_material" style="width: 'auto'; height: 500px;"></div>
+
+</div>
+
 <!-- /.row -->
 </div>
 <!-- /.container-fluid -->
 </div>
 <!-- /#page-wrapper -->
+
+
+
 <?php include "include/admin_footer.php"?>
