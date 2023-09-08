@@ -22,7 +22,7 @@ $query.="VALUES ('{$user_firstname}','{$user_lastname}','{$user_name}','{$user_e
 $create_user_query=mysqli_query($connection,$query);
 confirmQuery($create_user_query);
 
-echo "User created:" ."". "<a class='alert-danger' href='users.php'>View users</a>";
+echo "User created:" ."". "<a class='alert-danger' href='user.php'>View users</a>";
 
 
 }
