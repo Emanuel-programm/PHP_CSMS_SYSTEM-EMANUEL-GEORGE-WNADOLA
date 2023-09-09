@@ -163,7 +163,7 @@ $element_count=[$post_count,$post_draft_count,$comment_count,$comment_unapproved
 for($i=0;$i<7;$i++){
 // echo "['{$$element_text[$i]}'"." ,"."{$element_count[$i]}],";
 // echo "['{$element_text[$i]}'" .","."{$element_count[$i]}],";
-
+// echo "['{$element_text[$i]}'".","."{$element_count[$i]}],";
 echo "['{$element_text[$i]}'".","."{$element_count[$i]}],";
 
 

@@ -11,7 +11,7 @@
 WELCOME TO ADMIN PAGE
 <small>Author</small>
 </h1>
-<div class="col-xs-10  ">
+<div class="col-xs-10">
 
 <?php  
 if(isset($_GET['source'])){
@@ -32,10 +32,6 @@ include "include/view_all_user.php";
 }
 
 ?>
-
-
-
-
 </div>
 </div>
 
