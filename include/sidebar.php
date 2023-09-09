@@ -30,9 +30,6 @@
 </div>
 </form>  
 </div>
-
-
-
 <!-- Blog Categories Well -->
 <div class="well">
 <?php
