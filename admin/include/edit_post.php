@@ -74,7 +74,6 @@ if(isset($_POST['update_post'])){
   <input value="<?php echo $post_author; ?>" type="text" class="form-control" name="Author">  
 </div>
 <div class="form-group">
- 
 <select name="post_category_id" id="post_category">
 <?php
 $query="SELECT * FROM categories";
@@ -92,10 +91,30 @@ echo "
 ?>
 </select> 
 </div>
-<div class="form-group">
+<!-- <div class="form-group">
   <label for="title">Post status </label>
-  <input value="<?php echo $post_status; ?>" type="text" class="form-control" name="post_status">  
+  <input value="<" type="text" class="form-control" name="post_status">  
+</div> -->
+
+<div class="form-group">
+  <select  name="post_status" id="">
+<option value="<?php echo $post_status ?>"><?php echo $post_status; ?></option>
+<?php
+if($post_status =='published'){
+  echo "<option value='drafted'>Draft</option>";
+
+ 
+}
+else{
+  echo "<option value='published'>Published</option>" ;
+}
+
+?>
+  </select>
 </div>
+
+
+
 <div class="form-group">
   <img width="100" src="../images/<?php echo $post_images?>" alt="this is image"> <br> <br>   
   <input type="file" name="image">
