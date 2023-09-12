@@ -56,6 +56,10 @@ if(isset($_POST['update_post'])){
   $update_post=mysqli_query($connection,$query);
   confirmQuery($update_post); 
 
+  echo "<p class='bg-success  text-danger text-center'>Post Updated. <a href='../post.php?p_id={$the_post_id}'> View post</a>
+  OR <a href='posts.php'>Edit More Post</a>
+  </p>";
+
 
 // echo "Hi";
 
@@ -125,7 +129,7 @@ else{
 </div>
 <div class="form-group">
   <label for="title">Post Content </label>
-  <textarea name="post_content" id="" cols="30" rows="5" class="form-control">
+  <textarea name="post_content" id="summernote" cols="30" rows="5" class="form-control">
   <?php echo $post_content; ?>
 </textarea>  
 </div>

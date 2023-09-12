@@ -65,8 +65,8 @@ echo "
 <input type="text" class="form-control" name="post_tags">
 </div>
 <div class="form-group">
-  <label for="title">Post Content </label>
-  <textarea name="post_content" id="" cols="30" rows="5" class="form-control"></textarea>  
+  <label for="summernote">Post Content </label>
+  <textarea name="post_content" id="summernote" cols="30" rows="5" class="form-control"></textarea>  
 </div>
 <!-- <div class="form-group">
   <label for="title">Post date</label>
