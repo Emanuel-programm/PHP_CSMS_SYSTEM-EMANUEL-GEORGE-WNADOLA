@@ -31,6 +31,9 @@
                      <li>
                         <a href="Admin">Admin</a>
                     </li>
+                    <li>
+                        <a href="Registration.php">Registration</a>
+                    </li>
 <?php
 if(isset($_SESSION['user_role'])){
     if(isset($_GET['p_id'])){
