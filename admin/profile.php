@@ -67,8 +67,6 @@ if(isset($_POST['Edit_user'])){
 
 ?>
 
-
-
 <div id="wrapper">
 <!-- Navigation -->
 <?php include "include/admin_navigation.php" ?>
@@ -79,7 +77,15 @@ if(isset($_POST['Edit_user'])){
 <div class="col-lg-12">
 <h1 class="page-header">
 WELCOME TO ADMIN PAGE
-<small>Author</small>
+<small>
+
+<?php
+if(isset($_SESSION['username'])){
+    echo $_SESSION['username'];
+}
+?>
+
+</small>
 </h1>
 <div class="col-xs-10  ">
 

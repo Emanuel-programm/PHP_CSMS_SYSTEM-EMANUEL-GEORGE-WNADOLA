@@ -21,6 +21,16 @@ $query.="VALUES ({$post_category},'{$post_title}','{$post_author}',now(),'{$post
 $create_post_query=mysqli_query($connection,$query);
 confirmQuery($create_post_query);
 
+// echo "<p class=''>Post Added Successful <a href=''>View</a></p>";
+
+// Getting the last created id
+$the_post_id=mysqli_insert_id($connection);
+
+echo "<p class='bg-success  text-danger text-center'>Post Created <a href='../post.php?p_id={$the_post_id}'> View post</a>
+  OR <a href='posts.php'>Edit More Post</a>
+  </p>";
+
+
 
 }
 ?>
@@ -53,8 +63,13 @@ echo "
 </select> 
 </div>
 <div class="form-group">
-  <label for="title">Post status </label>
-  <input type="text" class="form-control" name="post_status">  
+
+<select name="post_status" id="">
+<option value="drafted">Post Status</option>
+<option value="publish">Publish</option>
+<option value="drafted">Draft</option>
+>
+</select>
 </div>
 <div class="form-group">
   <label for="title">Post Image </label>

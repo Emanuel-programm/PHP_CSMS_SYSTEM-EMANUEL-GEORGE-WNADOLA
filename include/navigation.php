@@ -37,14 +37,14 @@ if(isset($_SESSION['user_role'])){
         $the_post_id=$_GET['p_id'];
         echo " 
         <li>
-            <a href='admin/post.php?source=edit_post&p_id={$the_post_id}'>Edit Post</a>
+            <a href='admin/posts.php?source=edit_post&p_id={$the_post_id}'>Edit Post</a>
         </li>";
+       
     }
 }
+// }
 ?>
-
-
-                    
+       
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
