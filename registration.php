@@ -17,17 +17,30 @@ $username   =mysqli_real_escape_string($connection,$username);
 $email      =mysqli_real_escape_string($connection,$email);
 $password   =mysqli_real_escape_string($connection,$password);
 
-$query="SELECT randsalt FROM  users";
-$select_rand_salt_query=mysqli_query($connection,$query);
-if(!$select_rand_salt_query){
-die("QUERY FAILED".mysqli_error($connection));
-}
+// $query="SELECT randsalt FROM  users";
+// $select_rand_salt_query=mysqli_query($connection,$query);
+// if(!$select_rand_salt_query){
+// die("QUERY FAILED".mysqli_error($connection));
+// }
 
-$row=mysqli_fetch_array($select_rand_salt_query);
+// $row=mysqli_fetch_array($select_rand_salt_query);
 
- $salt=$row['randsalt'];
+//   $salt=$row['randsalt'];
 
-$password=crypt($password,$salt);
+// $password=crypt($password,$salt);
+
+
+
+// $options = [
+//     'cost' => 10, // You can adjust the cost parameter as needed
+// ];
+// $password = password_hash($password, PASSWORD_BCRYPT, $options);
+
+$options=[
+
+    'cost'=>10, 
+];
+$password=password_hash($password,PASSWORD_BCRYPT,$options);
 
  $query="INSERT INTO users (user_name,user_email,user_password,user_role) ";
  $query.="VALUES ('{$username}','{$email}','{$password}','subscriber') ";
