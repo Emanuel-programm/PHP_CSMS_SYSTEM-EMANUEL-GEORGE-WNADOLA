@@ -56,3 +56,5 @@ include "include/view_allpost.php";
 </div>
 <!-- /#page-wrapper -->
 <?php include "include/admin_footer.php"?>
+
+

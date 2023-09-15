@@ -102,15 +102,13 @@ echo "
 
 <div class="form-group">
   <select  name="post_status" id="">
-<option value="<?php echo $post_status ?>"><?php echo $post_status; ?></option>
+ <option value="<?php echo $post_status ?>"><?php echo $post_status; ?></option> 
 <?php
 if($post_status =='published'){
-  echo "<option value='drafted'>Draft</option>";
-
- 
+  echo "<option value='drafted'>Draft</option>"; 
 }
 else{
-  echo "<option value='published'>Published</option>" ;
+  echo "<option value='published'>Publish</option>" ;
 }
 
 ?>

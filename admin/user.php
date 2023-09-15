@@ -6,7 +6,7 @@
 <div class="container-fluid">
 <!-- Page Heading -->
 <div class="row">
-<div class="col-lg-12">
+<div class="col-lg-8">
 <h1 class="page-header">
 WELCOME TO ADMIN PAGE
 <small>

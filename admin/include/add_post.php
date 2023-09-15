@@ -66,7 +66,7 @@ echo "
 
 <select name="post_status" id="">
 <option value="drafted">Post Status</option>
-<option value="publish">Publish</option>
+<option value="published">Publish</option>
 <option value="drafted">Draft</option>
 >
 </select>

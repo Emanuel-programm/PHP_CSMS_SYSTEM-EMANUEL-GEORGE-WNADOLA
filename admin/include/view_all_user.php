@@ -12,7 +12,7 @@
 </thead>
 <tbody>
 <?php
-$query="SELECT*FROM users";
+$query="SELECT*FROM users ORDER BY user_id DESC";
 $select_users=mysqli_query($connection,$query);
 while($row=mysqli_fetch_assoc($select_users)){
 $user_id=$row['user_id'];
