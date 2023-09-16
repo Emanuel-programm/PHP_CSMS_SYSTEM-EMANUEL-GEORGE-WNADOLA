@@ -31,7 +31,19 @@ if(isset($_POST['submit'])){
 function  selecting_all_category(){
  global $connection;
 
- $query="SELECT * FROM categories ORDER BY cat_id DESC";
+ if(isset($_GET['pages'])){
+    $pages=$_GET['pages'];   
+  }
+  else{
+      $pages=1;
+  }
+  if($pages=="" || $pages==1){
+      $page_1=0;
+  }
+  else{
+  $page_1=($pages*3)-3;
+  }
+ $query="SELECT * FROM categories ORDER BY cat_id DESC LIMIT $page_1,3";
  $select_categories=mysqli_query($connection,$query);
  
  while($row =mysqli_fetch_assoc($select_categories)){

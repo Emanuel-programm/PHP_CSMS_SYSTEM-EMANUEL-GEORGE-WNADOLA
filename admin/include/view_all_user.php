@@ -12,7 +12,30 @@
 </thead>
 <tbody>
 <?php
-$query="SELECT*FROM users ORDER BY user_id DESC";
+if(isset($_GET['pages'])){
+$page=$_GET['pages'];
+
+}
+else{
+    $page=1;
+}
+if($page=="" || $page==1){
+    $page_1=0;
+}
+else{
+    $page_1=($page*3)-3;
+}
+
+
+
+$select_user_count="SELECT*FROM users";
+$sending_query=mysqli_query($connection,$select_user_count);
+$count=mysqli_num_rows($sending_query);
+$count=ceil($count/3);
+
+
+
+$query="SELECT*FROM users ORDER BY user_id DESC LIMIT $page_1,3";
 $select_users=mysqli_query($connection,$query);
 while($row=mysqli_fetch_assoc($select_users)){
 $user_id=$row['user_id'];
@@ -61,7 +84,8 @@ echo "<td><a href='user.php?source=edit_user&update_user=$user_id'>Edit</a></td>
 echo "<td><a href='user.php?delete=$user_id'>DELETE</a></td>";
 echo "</tr>";
 }
-?>  
+?> 
+
 </tbody>
 </table>
 <?php
@@ -92,4 +116,24 @@ $delete_query=mysqli_query($connection,$query);
 header("location:user.php");
 }
 ?>
+
+<ul class="pager">
+<?php
+for($i=1;$i<=$count;$i++){
+
+    if($page==$i){
+    echo "
+    <li> <a class='active' href='user.php?pages={$i}'>{$i}</a>
+    </li> ";
+    }
+    else{
+        echo  "<li> <a ' href='user.php?pages={$i}'>{$i}</a>
+        </li> ";  
+    }
+
+}
+?>
+
+</ul>
+
 

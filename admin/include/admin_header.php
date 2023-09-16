@@ -21,10 +21,10 @@ if(!isset($_SESSION['user_role'])){
     <meta name="author" content="">
 
     <title>SB Admin - Bootstrap Admin Template</title>
-
+  
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+  
 
     <!-- Custom CSS -->
     <link href="css/sb-admin.css" rel="stylesheet">
@@ -33,6 +33,8 @@ if(!isset($_SESSION['user_role'])){
    <link rel="stylesheet" href="css/summernote.css">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet">
+   
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

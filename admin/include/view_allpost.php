@@ -91,7 +91,28 @@ break;
 </thead>
 <tbody>
 <?php
-$query="SELECT*FROM posts ORDER BY post_id DESC ";
+if(isset($_GET['page'])){
+    $page=$_GET['page'];
+}
+else{
+    $page=1;
+}
+if($page=="" || $page==1){
+    $page_1=0;
+}
+else{
+    $page_1=($page*6)-6;
+}
+
+
+$page_query="SELECT * FROM posts";
+$sending_query=mysqli_query($connection,$page_query);
+$count=mysqli_num_rows($sending_query);
+$count= ceil($count/6);
+
+
+
+$query="SELECT*FROM posts ORDER BY post_id DESC LIMIT $page_1,6 ";
 $select_posts=mysqli_query($connection,$query);
 while($row=mysqli_fetch_assoc($select_posts)){
 $post_id=$row['post_id'];
@@ -106,7 +127,9 @@ $post_date=$row['post_date'];
 $post_content=$row['post_content'];
 $post_views_count=$row['post_views_count'];
 
+
 echo"<tr>";
+
 ?>
 <td><input class="selectAllBoxes" type="checkbox" name="checkBoxArray[]" value="<?php echo $post_id; ?>" ></td>
 <?php
@@ -146,6 +169,7 @@ echo "</tr>";
 
 }
 ?>  
+
 </tbody>
 </table>
 </form>
@@ -168,3 +192,21 @@ if(isset($_GET['reset'])){
     header("location:posts.php");
     }
 ?>
+
+<ul class="pager">
+<?php
+for($i=1;$i<=$count;$i++){
+if($page==$i){
+    echo "<li><a class='active' href='posts.php?page={$i}'>{$i}</a></li>" ;   
+}
+else{
+    echo "<li><a href='posts.php?page={$i}'>{$i}</a></li>" ;  
+}
+
+
+   
+}
+
+?>
+
+</ul>
