@@ -105,6 +105,7 @@ else{
 }
 
 
+
 $page_query="SELECT * FROM posts";
 $sending_query=mysqli_query($connection,$page_query);
 $count=mysqli_num_rows($sending_query);

@@ -1,7 +1,6 @@
 <!-- this for header -->
 <?php include "include/admin_header.php"?>
     <div id="wrapper">
-
 <!-- Navigation -->
 <?php include "include/admin_navigation.php" ?>
 <div id="page-wrapper">
@@ -13,6 +12,8 @@
 WELCOME TO ADMIN PAGE
 <small><?php echo $_SESSION['username'] ?></small>
 </h1>
+
+
 </div>
 </div>
 <!-- /.row -->
@@ -169,6 +170,7 @@ for($i=0;$i<8;$i++){
 // echo "['{$element_text[$i]}'" .","."{$element_count[$i]}],";
 // echo "['{$element_text[$i]}'".","."{$element_count[$i]}],";
 echo "['{$element_text[$i]}'".","."{$element_count[$i]}],";
+
 
 
 
