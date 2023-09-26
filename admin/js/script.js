@@ -24,14 +24,14 @@ $(document).ready(function() {
     });
 });
 
-
 function loadUserOnline(){
-    $.get("functions.php?onlineusers=result",function(data){
+    $.get("include/functions.php?usersonline=userresult",function(data){
         $(".usersonline").text(data);
     });
 
-
 }
+
 setInterval(function(){
 loadUserOnline();
 },500);
+

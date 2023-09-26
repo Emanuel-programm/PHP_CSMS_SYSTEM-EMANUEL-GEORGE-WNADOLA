@@ -33,7 +33,11 @@ if(!isset($_SESSION['user_role'])){
    <link rel="stylesheet" href="css/summernote.css">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet">
+    <!-- <link href="css/style.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="css/style1.css">
+    li
+
+   
    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 

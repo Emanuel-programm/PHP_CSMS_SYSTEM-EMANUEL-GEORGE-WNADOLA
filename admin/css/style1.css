@@ -1,7 +1,7 @@
 
 
 #load-screen {
-    background: url(../images/header-back.png);
+   background: url("../images_loading/header-back.png");
     position: fixed;
     z-index: 10000;
     top:0px;
@@ -15,7 +15,7 @@
     width: 500px;
     height: 500px;
     margin: 10% auto;
-    background: url(../images/loader.gif);
+    background: url("../images_loading/loader.gif");
     background-size: 40%;
     background-repeat: no-repeat;
     background-position: center;
@@ -31,6 +31,5 @@
 
    
 
-
    
-    
+  
