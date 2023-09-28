@@ -4,13 +4,21 @@ if(isset($_POST['create_user'])){
    $user_firstname=$_POST['user_firstname'];
    $user_lastname=$_POST['user_lastname'];
    $user_role=$_POST['user_role'];
+   $user_name=$_POST['user_name'];
+   $user_email=$_POST['user_email'];
+   $user_password=$_POST['user_password'];
 
   //  $post_image=$_FILES['image']['name'];
   //  $post_image_temp=$_FILES['image']['tmp_name'];
 
-   $user_name=$_POST['user_name'];
-   $user_email=$_POST['user_email'];
-   $user_passwor  =$_POST['user_password'];
+   $user_name=mysqli_real_escape_string($connection,$user_name);
+   $user_email=mysqli_real_query($connection,$user_email);
+   $user_password=mysqli_real_escape_string($connection,$user_password);
+  //  $user_password=$_POST['user_password'];
+$options=[
+  'cost'=>10,
+];
+  $user_password=password_hash($user_password,PASSWORD_BCRYPT,$options);
   //  $post_date=date('d-m-y');
   //  $post_comment_count=4;
    
@@ -18,7 +26,7 @@ if(isset($_POST['create_user'])){
 
 $query="INSERT INTO users(user_firstname,user_lastname,user_name,user_email,user_role,user_password) ";
 // $query.="VALUES ({$post_category},'{$post_title}','{$post_author}'now(),'{$post_image}','{$post_content}','{$post_tags}','{$post_comment_count}','{$post_status}')";
-$query.="VALUES ('{$user_firstname}','{$user_lastname}','{$user_name}','{$user_email}','{$user_role}','{$user_passwor}')";
+$query.="VALUES ('{$user_firstname}','{$user_lastname}','{$user_name}','{$user_email}','{$user_role}','{$user_password}')";
 $create_user_query=mysqli_query($connection,$query);
 confirmQuery($create_user_query);
 

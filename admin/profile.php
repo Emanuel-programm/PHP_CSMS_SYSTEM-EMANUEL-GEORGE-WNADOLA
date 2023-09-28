@@ -35,7 +35,7 @@ if(isset($_POST['Edit_user'])){
   
      $user_firstname=$_POST['user_firstname'];
      $user_lastname=$_POST['user_lastname'];
-     $user_role=$_POST['user_role'];
+   
   
     //  $post_image=$_FILES['image']['name'];
     //  $post_image_temp=$_FILES['image']['tmp_name'];
@@ -54,7 +54,6 @@ if(isset($_POST['Edit_user'])){
     $query = "UPDATE users SET "; 
     $query .= "user_firstname = '{$user_firstname}', ";
     $query .= "user_lastname = '{$user_lastname}', ";
-    $query .= "user_role = '{$user_role}', ";
     $query .= "user_name = '{$user_name}', ";
     $query .= "user_email = '{$user_email}', ";
     $query .= "user_password = '{$user_password }' ";
@@ -118,24 +117,10 @@ if(isset($_SESSION['username'])){
   <label for="title">Email</label>
  <input type="email" value="<?php echo $user_email ?>" class="form-control" name="user_email">
 </div>
-<div class="form-group">
-<select name="user_role" id="">
-<option value="subscriber"><?php echo $user_role?></option>
-<?php
-if($user_role=='admin'){
-  echo "<option value='subscriber'>subscriber</option>";
-}
-else{
-  echo "<option value='admin'>admin</option>";
-}
 
-?>
-
-</select>
-</div>
 <div class="form-group">
   <label for="title">Password</label>
- <input type="password" value="<?php echo $user_password ?>"class="form-control" name="user_password">
+ <input type="password" autocomplete="off"  class="form-control" name="user_password">
 </div>
 <!-- <div class="form-group">
   <label for="title">Post date</label>

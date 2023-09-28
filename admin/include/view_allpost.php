@@ -123,6 +123,8 @@ $post_category_id=$row['post_category_id'];
 $post_status=$row['post_status'];
 $post_images=$row['post_image'];
 $post_tags=$row['post_tags'];
+
+
 $post_comment=$row['post_comment_count'];
 $post_date=$row['post_date'];
 $post_content=$row['post_content'];
@@ -159,7 +161,12 @@ echo "<td>{$post_status}</td>";
 echo " <td><img width='100' src='../images/{$post_images}'></img></td>";
 echo "<td>{$post_tags}</td>";
 echo "<td>{$post_content}</td>";
-echo "<td>{$post_comment}</td>";
+
+$query="SELECT * FROM comments WHERE comment_post_id=$post_id";
+$send_comment_query=mysqli_query($connection,$query);
+$count_comments=mysqli_num_rows($send_comment_query);
+echo "<td> <a href=''{$count_comments}</a></td>";
+
 echo "<td>{$post_date}</td>";
 echo "<td><a href='../post.php?p_id={$post_id}'>View Post</a></td>";
 echo "

@@ -12,6 +12,8 @@ $password  =$_POST['password'];
 if(!empty($username) && !empty($email) && !empty($password)){
 
 
+    
+
 // cleaning the values
 $username   =mysqli_real_escape_string($connection,$username);
 $email      =mysqli_real_escape_string($connection,$email);
@@ -37,7 +39,6 @@ $password   =mysqli_real_escape_string($connection,$password);
 // $password = password_hash($password, PASSWORD_BCRYPT, $options);
 
 $options=[
-
     'cost'=>10, 
 ];
 $password=password_hash($password,PASSWORD_BCRYPT,$options);
@@ -113,7 +114,6 @@ else{
 
 
         <hr>
-
 
 
 <?php include "include/footer.php";?>

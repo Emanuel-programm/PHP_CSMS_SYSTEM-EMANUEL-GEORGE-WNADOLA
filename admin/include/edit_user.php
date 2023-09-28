@@ -16,7 +16,7 @@ if(isset($_GET['update_user'])){
    $user_role=$row['user_role'];
 
 
-   }
+   
 
 
 }
@@ -34,14 +34,27 @@ if(isset($_POST['Edit_user'])){
 
    $user_name=$_POST['user_name'];
    $user_email=$_POST['user_email'];
-   $user_passwor  =$_POST['user_password'];
+   $user_password =$_POST['user_password'];
   //  $post_date=date('d-m-y');
   //  $post_comment_count=4;
    
   //  move_uploaded_file($post_image_temp,"../images/$post_image");
   // $query="UPDATE users SET user_firstname='$user_firstname',user_lastname='$user_lastname',user_role='$user_role',user_name='$user_name',user_email='$user_email',user_password='$user_password' WHERE user_id=$the_user_id";
   // $update_user_query=mysqli_query($connection,$query);
+if(!empty($user_password)){
 
+$query_password="SELECT user_password FROM users WHERE user_id=$the_user_id";
+$edit_user_password=mysqli_query($connection,$query_password);
+confirmQuery($edit_user_password);
+
+$row=mysqli_fetch_array($edit_user_password);
+$db_user_password=$row['user_password'];
+
+
+
+if($db_user_password!=$user_password){
+  $hashed_password=password_hash($user_password,PASSWORD_BCRYPT,array('cost'=>10,));
+}
 
   $query = "UPDATE users SET "; 
   $query .= "user_firstname = '{$user_firstname}', ";
@@ -49,7 +62,7 @@ if(isset($_POST['Edit_user'])){
   $query .= "user_role = '{$user_role}', ";
   $query .= "user_name = '{$user_name}', ";
   $query .= "user_email = '{$user_email}', ";
-  $query .= "user_password = '{$user_password }' ";
+  $query .= "user_password = '{$hashed_password }' ";
   $query .= " WHERE user_id=$the_user_id";
 
   $update_user_query=mysqli_query($connection,$query);
@@ -57,6 +70,12 @@ if(isset($_POST['Edit_user'])){
   header("location:./user.php");
 
 
+}
+}
+
+}
+else{
+  header("location:index.php");
 }
 ?>
 <form action="" method="post" enctype="multipart/form-data">
@@ -99,7 +118,7 @@ else{
 </div>
 <div class="form-group">
   <label for="title">Password</label>
- <input type="password" value="<?php echo $user_password ?>"class="form-control" name="user_password">
+ <input type="password" autocomplete="off" class="form-control" name="user_password">
 </div>
 <!-- <div class="form-group">
   <label for="title">Post date</label>
