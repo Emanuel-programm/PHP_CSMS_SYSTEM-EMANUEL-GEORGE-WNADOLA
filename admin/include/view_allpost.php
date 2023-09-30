@@ -53,7 +53,7 @@ break;
 
 ?>
 
- <form action="" method="post">
+ <form  method="post">
  <table class="table table-bordered table-hover">
 <div class="col-xs-4" id="bulkOptionsContainer">
 <select class="form-control" name="bulk_options" id="">
@@ -125,7 +125,15 @@ $post_images=$row['post_image'];
 $post_tags=$row['post_tags'];
 
 
+$quuery="SELECT* FROM comments WHERE comment_post_id=$post_id";
+$send_comment_count=mysqli_query($connection,$query);
+$count_comment=mysqli_num_rows($send_comment_count);
+
+
 $post_comment=$row['post_comment_count'];
+
+
+
 $post_date=$row['post_date'];
 $post_content=$row['post_content'];
 $post_views_count=$row['post_views_count'];
@@ -164,8 +172,18 @@ echo "<td>{$post_content}</td>";
 
 $query="SELECT * FROM comments WHERE comment_post_id=$post_id";
 $send_comment_query=mysqli_query($connection,$query);
+$row=mysqli_fetch_array($send_comment_query);
+// echo print_r($send_comment_query);
+if (mysqli_num_rows($send_comment_query) > 0) {
+$comment_id=$row['comment_id'];
+
 $count_comments=mysqli_num_rows($send_comment_query);
-echo "<td> <a href=''{$count_comments}</a></td>";
+// echo "<td><a href='{$count_comments}'</a></td>";
+echo "<td><a href=''>{$count_comments}</a></td>";
+}
+else{
+    echo "<td>0</td>";  
+}
 
 echo "<td>{$post_date}</td>";
 echo "<td><a href='../post.php?p_id={$post_id}'>View Post</a></td>";
