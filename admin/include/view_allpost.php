@@ -133,7 +133,6 @@ $count_comment=mysqli_num_rows($send_comment_count);
 $post_comment=$row['post_comment_count'];
 
 
-
 $post_date=$row['post_date'];
 $post_content=$row['post_content'];
 $post_views_count=$row['post_views_count'];
@@ -179,7 +178,7 @@ $comment_id=$row['comment_id'];
 
 $count_comments=mysqli_num_rows($send_comment_query);
 // echo "<td><a href='{$count_comments}'</a></td>";
-echo "<td><a href=''>{$count_comments}</a></td>";
+echo "<td><a href='post_comment.php?id=$post_id'>{$count_comments}</a></td>";
 }
 else{
     echo "<td>0</td>";  
