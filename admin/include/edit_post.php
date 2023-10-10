@@ -8,7 +8,7 @@ $query="SELECT*FROM posts WHERE post_id=$the_post_id";
 $select_posts_by_id=mysqli_query($connection,$query);
 while($row=mysqli_fetch_assoc($select_posts_by_id)){
 $post_id=$row['post_id'];
-$post_author=$row['post_author'];
+$post_user=$row['post_user'];
 $post_title=$row['post_title'];
 $post_category_id=$row['post_category_id'];
 $post_status=$row['post_status'];
@@ -21,7 +21,7 @@ $post_content=$row['post_content'];
 
 if(isset($_POST['update_post'])){
   $post_title=$_POST['title'];
-  $post_author=$_POST['Author'];
+  $post_user=$_POST['post_user'];
   $post_category=$_POST['post_category_id'];
   // $post_category=$_POST['post_category_id'];
   $post_status=$_POST['post_status'];
@@ -45,7 +45,7 @@ if(isset($_POST['update_post'])){
   $query .= "post_title = '{$post_title}', ";
   $query .= "post_category_id = '{$post_category}', ";
   $query .= "post_date = NOW(), ";
-  $query .= "post_author = '{$post_author}', ";
+  $query .= "post_user = '{$post_user}', ";
   $query .= "post_status = '{$post_status}', ";
   $query .= "post_tags = '{$post_tags}', ";
   $query .= "post_content = '{$post_content}', ";
@@ -73,11 +73,33 @@ if(isset($_POST['update_post'])){
   <label for="title">Post Title </label>
   <input value="<?php echo $post_title; ?>" type="text" class="form-control" name="title">  
 </div>
-<div class="form-group">
+<!-- <div class="form-group">
   <label for="title">Post Author </label>
-  <input value="<?php echo $post_author; ?>" type="text" class="form-control" name="Author">  
+  <input value="<?php /*echo $post_author;*/ ?>" type="text" class="form-control" name="Author">  
+</div> -->
+<div class="form-group">
+<label for="cat">Users </label>
+<select name="post_user" id="post_category">
+
+echo " <option value='{$post_user}'><?php echo $post_user?></option>;
+<?php
+$query="SELECT * FROM users";
+$select_users=mysqli_query($connection,$query);
+confirmQuery($select_users);
+while($row =mysqli_fetch_assoc($select_users)){
+$user_id=$row['user_id'];
+$username=$row['user_name'];
+
+echo "
+
+<option value='{$username}'>{$username}</option>
+";
+}
+?>
+</select> 
 </div>
 <div class="form-group">
+<label for="category">Categories</label>
 <select name="post_category_id" id="post_category">
 <?php
 $query="SELECT * FROM categories";

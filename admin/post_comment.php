@@ -9,7 +9,7 @@
 <div class="row">
 <div class="col-lg-12">
 <h1 class="page-header">
-WELCOME TO Comments PAGE
+WELCOME TO COMMENTS PAGE
 <small>
 <?php
 if(isset($_SESSION['username'])){
@@ -85,9 +85,9 @@ echo "<td><a href='../post.php?p_id=$post_id'>{$post_title}</a></td>";
 
 echo "<td>$comment_date</td>";
 echo "
-<td><a  href='comments.php?approve=$comment_id'>Approve</a></td>";
-echo "<td><a href='comments.php?unapprove=$comment_id'>Unapprove</a></td>";
-echo "<td><a href='comments.php?delete=$comment_id&id=".$_GET['id']."'>DELETE</a></td>";
+<td><a  href='post_comment.php?approve=$comment_id&id=".$_GET['id']."'>Approve</a></td>";
+echo "<td><a href='post_comment.php?unapprove=$comment_id &id=".$_GET['id']."'>Unapprove</a></td>";
+echo "<td><a href='post_comment.php?delete=$comment_id&id=".$_GET['id']."'>DELETE</a></td>";
 echo "</tr>";
 }
 ?>  
@@ -100,7 +100,7 @@ if(isset($_GET['approve'])){
     $the_comment_id=$_GET['approve'];
     $query = "UPDATE comments SET comment_status='approved' WHERE comment_id=$the_comment_id";
     $approve_comment_query=mysqli_query($connection,$query);
-    header("location:comments.php");
+    header("location:post_comment.php?id=".$_GET['id']."");
     }
 
 
@@ -109,7 +109,7 @@ if(isset($_GET['unapprove'])){
     $the_comment_id=$_GET['unapprove'];
     $query = "UPDATE comments SET comment_status='unapproved' WHERE comment_id=$the_comment_id";
     $unapprove_comment_query=mysqli_query($connection,$query);
-    header("location:comments.php");
+    header("location:post_comment.php?id=".$_GET['id']."");
     }
 
 // lets delete the comments
